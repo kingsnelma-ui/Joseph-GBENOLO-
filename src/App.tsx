@@ -845,7 +845,7 @@ function ApproachStep({ step, index, last }: { step: Step; index: number; last: 
 function Approach() {
   const { ref: hRef, style: hStyle } = useReveal(0)
   const steps: Step[] = [
-    { n: '01', title: 'Diagnostic', sub: 'Voir l'échiquier', body: "Comprendre où vous en êtes — vos forces, vos angles morts, votre véritable position sur l'échiquier de votre vie." },
+    { n: '01', title: 'Diagnostic', sub: "Voir l'échiquier", body: "Comprendre où vous en êtes — vos forces, vos angles morts, votre véritable position sur l'échiquier de votre vie." },
     { n: '02', title: 'Stratégie', sub: 'Planifier ses coups', body: "Construire ensemble un plan de jeu personnel, cohérent avec qui vous êtes et la destination que vous visez." },
     { n: '03', title: 'Exécution', sub: 'Jouer pour gagner', body: "Passer à l'action avec méthode. Ajuster, apprendre, progresser — comme un joueur d'élite qui joue le long terme." },
   ]
