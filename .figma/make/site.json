@@ -1,0 +1,11 @@
+{
+  "title": "Joseph Gbenolo — Coach de vie certifié",
+  "description": "Showcases a striking one-page portfolio for a certified life coach blending strategic chess themes with organic design to inspire confidence and mindset growth.",
+  "robots": {
+    "index": true
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
