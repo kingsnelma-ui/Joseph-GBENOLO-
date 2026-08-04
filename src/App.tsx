@@ -152,8 +152,8 @@ export default function App() {
           </h1>
         </div>
 
-        {/* Portrait — pulled up to overlap the headline's last line, bleeding right */}
-        <div className="relative w-full" style={{ zIndex: 1, marginTop: '-64px' }}>
+        {/* Portrait — sits cleanly below the headline, bleeding right */}
+        <div className="relative w-full" style={{ zIndex: 1, marginTop: '24px' }}>
           <div className="relative ml-auto" data-reveal="scale" style={{ width: '64%', ['--reveal-delay' as any]: '260ms' }}>
 
             {/* Decorative golden ring behind portrait */}

@@ -5,7 +5,7 @@
     "index": true
   },
   "openGraph": {
-    "image": "/og-image.png"
+    "image": "https://joseph-gbenolo.netlify.app/og-image.png"
   },
   "accessibility": {
     "addBypassLinks": false,
