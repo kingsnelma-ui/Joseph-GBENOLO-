@@ -1,8 +1,11 @@
 {
   "title": "Joseph Gbenolo — Coach de vie certifié",
-  "description": "Offers a visually bold, mobile-first portfolio showcasing a certified life coach's expertise in self-confidence, emotional management, and mindset for young francophone adults.",
+  "description": "Reprends le contrôle de ta vie. Coach de vie certifié à Cotonou, spécialisé en confiance en soi, gestion des émotions et mindset.",
   "robots": {
     "index": true
+  },
+  "openGraph": {
+    "image": "/og-image.png"
   },
   "accessibility": {
     "addBypassLinks": false,

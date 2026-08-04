@@ -94,6 +94,23 @@ body {
   animation: pulse-glow 2.6s ease-in-out infinite;
 }
 
+/* ─── Ghost-in — background decorative elements that must stay at LOW opacity
+   (unlike data-pop, which ends at full opacity — using pop-in on these was the
+   bug: the animation's final keyframe overrode the intended faint opacity) ─── */
+@keyframes ghost-in {
+  0% { opacity: 0; transform: scale(0.85); }
+  100% { opacity: var(--ghost-opacity, 0.08); transform: scale(1); }
+}
+[data-ghost] {
+  opacity: 0;
+  animation: ghost-in 0.9s ease forwards;
+  animation-play-state: paused;
+  animation-delay: var(--pop-delay, 0ms);
+}
+[data-ghost].is-visible {
+  animation-play-state: running;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal], [data-reveal].is-visible,
   [data-pop], [data-pop].is-visible,
@@ -104,5 +121,10 @@ body {
     animation: none !important;
     opacity: 1 !important;
     stroke-dashoffset: 0 !important;
+  }
+  [data-ghost] {
+    animation: none !important;
+    opacity: var(--ghost-opacity, 0.08) !important;
+    transform: none !important;
   }
 }

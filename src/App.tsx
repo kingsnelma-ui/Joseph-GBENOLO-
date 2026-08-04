@@ -1,10 +1,10 @@
 import { useRef, useEffect } from 'react'
-import josephPhoto from '@/imports/SaveClip.App_538018834_17898223728257726_7580939303002389823_n.jpg'
+import josephPhotoNew from './assets/hero-photo-new.png'
 
 /* ─── Scroll reveal — watches data-reveal / data-pop / data-draw ─── */
 function useScrollReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll('[data-reveal], [data-pop], [data-draw]')
+    const els = document.querySelectorAll('[data-reveal], [data-pop], [data-draw], [data-ghost]')
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -21,8 +21,8 @@ function useScrollReveal() {
   }, [])
 }
 
-const WA_LINK = 'https://wa.me/22900000000'
-const IG_LINK = 'https://instagram.com/josephgbenolo'
+const WA_LINK = 'https://wa.me/22996104887'
+const IG_LINK = 'https://www.instagram.com/joseph_gbenolo?igsh=NWdzdThzZm8zZHE='
 
 const WA_ICON = (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -82,7 +82,7 @@ export default function App() {
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md"
         style={{ background: 'rgba(12,12,12,0.88)', borderBottom: '1px solid rgba(232,150,10,0.12)' }}
       >
-        <div className="max-w-md mx-auto px-5 h-14 flex items-center justify-between">
+        <div className="max-w-md mx-auto px-5 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span
               className="font-display text-[#E8960A]"
@@ -90,16 +90,21 @@ export default function App() {
             >
               JG
             </span>
-            <span style={{ fontSize: '11px', color: 'rgba(240,232,216,0.4)', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
-              Coach de Vie
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span style={{ fontSize: '11px', color: 'rgba(240,232,216,0.4)', textTransform: 'uppercase', letterSpacing: '0.25em' }}>
+                Coach de Vie
+              </span>
+              <span style={{ fontSize: '9px', color: '#E8960A', textTransform: 'uppercase', letterSpacing: '0.3em', fontWeight: 700 }}>
+                Certifié
+              </span>
+            </div>
           </div>
           <WaBtn>WhatsApp</WaBtn>
         </div>
       </header>
 
       {/* ── 2. HERO ─────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ paddingTop: '56px', paddingBottom: '60px' }}>
+      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ paddingTop: '64px', paddingBottom: '60px' }}>
 
         {/* Giant "JOSEPH" background text */}
         <div
@@ -131,57 +136,51 @@ export default function App() {
           <ChessKnight className="w-56 h-56 text-[#E8960A]" />
         </div>
 
-        {/* Eyebrow label */}
-        <div className="relative px-5 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1 }}>
-          <p style={{ fontSize: '10px', color: '#E8960A', textTransform: 'uppercase', letterSpacing: '0.35em', fontWeight: 700 }}>
-            Coach de vie certifié
-          </p>
+        {/* Headline — full width, big, first */}
+        <div className="relative px-5 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 2, ['--reveal-delay' as any]: '120ms' }}>
+          <h1
+            style={{
+              fontFamily: "'Anton', sans-serif",
+              fontSize: 'clamp(46px, 15vw, 66px)',
+              lineHeight: 0.94,
+              letterSpacing: '-0.01em',
+            }}
+          >
+            <span style={{ display: 'block', color: '#F0E8D8' }}>REPRENDS</span>
+            <span style={{ display: 'block', color: '#E8960A' }}>LE CONTRÔLE</span>
+            <span style={{ display: 'block', color: '#F0E8D8' }}>DE TA VIE.</span>
+          </h1>
         </div>
 
-        {/* Portrait + headline — side by side, portrait bleeding to the right edge */}
-        <div className="relative w-full mt-6" style={{ zIndex: 1, minHeight: '300px' }}>
+        {/* Portrait — pulled up to overlap the headline's last line, bleeding right */}
+        <div className="relative w-full" style={{ zIndex: 1, marginTop: '-64px' }}>
+          <div className="relative ml-auto" data-reveal="scale" style={{ width: '64%', ['--reveal-delay' as any]: '260ms' }}>
 
-          {/* Decorative golden ring behind portrait */}
-          <svg
-            className="absolute pointer-events-none"
-            data-draw
-            style={{ top: '-30px', right: '-50px', zIndex: 0, ['--draw-delay' as any]: '650ms' }}
-            width="230" height="230" viewBox="0 0 230 230"
-            aria-hidden="true"
-          >
-            <circle cx="115" cy="115" r="114" fill="none" stroke="rgba(232,150,10,0.18)" strokeWidth="1.5" />
-          </svg>
-
-          {/* Portrait — bleeds to the right edge, fades into dark bg on left and bottom */}
-          <div className="absolute" data-reveal="scale" style={{ top: '-6px', right: 0, width: '58%', height: '300px', zIndex: 1, ['--reveal-delay' as any]: '150ms' }}>
-            <img
-              src={josephPhoto}
-              alt="Joseph Gbenolo, coach de vie certifié à Cotonou"
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-            />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #0C0C0C 0%, transparent 38%)' }} />
-            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 55%, #0C0C0C 96%)' }} />
-          </div>
-
-          {/* Headline — left column, pushed down for breathing room below the header/eyebrow */}
-          <div className="relative px-5" data-reveal style={{ zIndex: 2, paddingTop: '38px', maxWidth: '62%', ['--reveal-delay' as any]: '320ms' }}>
-            <h1
-              style={{
-                fontFamily: "'Anton', sans-serif",
-                fontSize: 'clamp(34px, 10vw, 42px)',
-                lineHeight: 0.98,
-                letterSpacing: '-0.01em',
-              }}
+            {/* Decorative golden ring behind portrait */}
+            <svg
+              className="absolute pointer-events-none"
+              data-draw
+              style={{ top: '-30px', right: '-40px', zIndex: 0, ['--draw-delay' as any]: '650ms' }}
+              width="230" height="230" viewBox="0 0 230 230"
+              aria-hidden="true"
             >
-              <span style={{ display: 'block', color: '#F0E8D8' }}>REPRENDS</span>
-              <span style={{ display: 'block', color: '#E8960A' }}>LE CONTRÔLE</span>
-              <span style={{ display: 'block', color: '#F0E8D8' }}>DE TA VIE.</span>
-            </h1>
+              <circle cx="115" cy="115" r="114" fill="none" stroke="rgba(232,150,10,0.18)" strokeWidth="1.5" />
+            </svg>
+
+            <div className="relative" style={{ zIndex: 1, height: '320px' }}>
+              <img
+                src={josephPhotoNew}
+                alt="Joseph Gbenolo, coach de vie certifié à Cotonou"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+              />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #0C0C0C 0%, transparent 30%)' }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 60%, #0C0C0C 97%)' }} />
+            </div>
           </div>
         </div>
 
         {/* Subtitle */}
-        <div className="relative px-5 mt-4 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '480ms' }}>
+        <div className="relative px-5 mt-5 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '480ms' }}>
           <p style={{ color: 'rgba(240,232,216,0.65)', fontSize: '14px', lineHeight: 1.65, maxWidth: '260px' }}>
             Un accompagnement humain et structuré pour t'aider à clarifier, décider et avancer avec{' '}
             <strong style={{ color: '#F0E8D8', fontWeight: 600 }}>confiance</strong>.
@@ -236,18 +235,26 @@ export default function App() {
 
         {/* Bottom stats row */}
         <div
-          className="relative grid grid-cols-3 max-w-md mx-auto w-full px-5"
+          className="relative flex justify-between max-w-md mx-auto w-full px-5"
           data-reveal
-          style={{ zIndex: 1, marginTop: '28px', paddingTop: '18px', borderTop: '1px solid rgba(232,150,10,0.1)', ['--reveal-delay' as any]: '950ms' }}
+          style={{ zIndex: 1, marginTop: '32px', paddingTop: '22px', borderTop: '1px solid rgba(232,150,10,0.1)', ['--reveal-delay' as any]: '950ms' }}
         >
           {[
             { title: 'Confidentialité', desc: 'Un espace sûr pour te confier.' },
             { title: 'Clarté', desc: 'Des prises de conscience qui changent tout.' },
             { title: 'Résultats', desc: 'Des actions concrètes, des changements réels.' },
-          ].map((item, i) => (
-            <div key={item.title} style={{ paddingRight: '8px', borderRight: i < 2 ? '1px solid rgba(232,150,10,0.1)' : 'none' }}>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: '#F0E8D8', marginBottom: '4px' }}>{item.title}</div>
-              <div style={{ fontSize: '9.5px', color: 'rgba(240,232,216,0.4)', lineHeight: 1.4 }}>{item.desc}</div>
+          ].map((item, i, arr) => (
+            <div
+              key={item.title}
+              style={{
+                flex: '1 1 0',
+                paddingRight: i < arr.length - 1 ? '14px' : 0,
+                marginRight: i < arr.length - 1 ? '14px' : 0,
+                borderRight: i < arr.length - 1 ? '1px solid rgba(232,150,10,0.1)' : 'none',
+              }}
+            >
+              <div style={{ fontSize: '11px', fontWeight: 700, color: '#F0E8D8', marginBottom: '5px' }}>{item.title}</div>
+              <div style={{ fontSize: '9.5px', color: 'rgba(240,232,216,0.4)', lineHeight: 1.45 }}>{item.desc}</div>
             </div>
           ))}
         </div>
@@ -287,8 +294,8 @@ export default function App() {
           {/* Chess piece ghost */}
           <div
             className="absolute pointer-events-none select-none"
-            data-pop
-            style={{ bottom: '-8px', right: '-8px', opacity: 0.065, ['--pop-delay' as any]: '300ms' }}
+            data-ghost
+            style={{ bottom: '-8px', right: '-8px', ['--ghost-opacity' as any]: 0.065, ['--pop-delay' as any]: '300ms' }}
             aria-hidden="true"
           >
             <ChessKnight className="w-52 h-52 text-[#0C0C0C]" />
@@ -803,19 +810,19 @@ export default function App() {
       <section style={{ background: '#E8960A', padding: '80px 20px', position: 'relative', overflow: 'hidden' }}>
         {/* Chess piece echo */}
         <div
-          data-pop
           style={{
             position: 'absolute',
             right: '-20px',
             top: '50%',
             transform: 'translateY(-50%)',
-            opacity: 0.1,
             pointerEvents: 'none',
-            ['--pop-delay' as any]: '200ms',
+            zIndex: 0,
           }}
           aria-hidden="true"
         >
-          <ChessKnight className="w-52 h-52 text-[#0C0C0C]" />
+          <div data-ghost style={{ ['--ghost-opacity' as any]: 0.1, ['--pop-delay' as any]: '200ms' }}>
+            <ChessKnight className="w-52 h-52 text-[#0C0C0C]" />
+          </div>
         </div>
 
         <div className="relative max-w-md mx-auto text-center" data-reveal="scale">
