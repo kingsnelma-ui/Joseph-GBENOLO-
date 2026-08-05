@@ -152,9 +152,9 @@ export default function App() {
           </h1>
         </div>
 
-        {/* Portrait — sits cleanly below the headline, bleeding right */}
-        <div className="relative w-full" style={{ zIndex: 1, marginTop: '24px' }}>
-          <div className="relative ml-auto" data-reveal="scale" style={{ width: '64%', ['--reveal-delay' as any]: '260ms' }}>
+        {/* Portrait — sits cleanly below the headline, bleeding right, taller crop to show full torso */}
+        <div className="relative w-full" style={{ zIndex: 1, marginTop: '18px' }}>
+          <div className="relative ml-auto" data-reveal="scale" style={{ width: '68%', ['--reveal-delay' as any]: '260ms' }}>
 
             {/* Decorative golden ring behind portrait */}
             <svg
@@ -167,28 +167,28 @@ export default function App() {
               <circle cx="115" cy="115" r="114" fill="none" stroke="rgba(232,150,10,0.18)" strokeWidth="1.5" />
             </svg>
 
-            <div className="relative" style={{ zIndex: 1, height: '320px' }}>
+            <div className="relative" style={{ zIndex: 1, height: '460px' }}>
               <img
                 src={josephPhotoNew}
                 alt="Joseph Gbenolo, coach de vie certifié à Cotonou"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
               />
               <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #0C0C0C 0%, transparent 30%)' }} />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 60%, #0C0C0C 97%)' }} />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 68%, #0C0C0C 97%)' }} />
             </div>
           </div>
         </div>
 
         {/* Subtitle */}
-        <div className="relative px-5 mt-5 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '480ms' }}>
-          <p style={{ color: 'rgba(240,232,216,0.65)', fontSize: '14px', lineHeight: 1.65, maxWidth: '260px' }}>
+        <div className="relative px-5 mt-4 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '480ms' }}>
+          <p style={{ color: 'rgba(240,232,216,0.65)', fontSize: '14px', lineHeight: 1.55, maxWidth: '260px' }}>
             Un accompagnement humain et structuré pour t'aider à clarifier, décider et avancer avec{' '}
             <strong style={{ color: '#F0E8D8', fontWeight: 600 }}>confiance</strong>.
           </p>
         </div>
 
         {/* Info card */}
-        <div className="relative px-5 mt-5 max-w-md mx-auto w-full" data-pop style={{ zIndex: 1, ['--pop-delay' as any]: '600ms' }}>
+        <div className="relative px-5 mt-4 max-w-md mx-auto w-full" data-pop style={{ zIndex: 1, ['--pop-delay' as any]: '600ms' }}>
           <div
             className="flex items-start gap-3"
             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(232,150,10,0.12)', borderRadius: '14px', padding: '16px' }}
@@ -237,7 +237,7 @@ export default function App() {
         <div
           className="relative flex justify-between max-w-md mx-auto w-full px-5"
           data-reveal
-          style={{ zIndex: 1, marginTop: '32px', paddingTop: '22px', borderTop: '1px solid rgba(232,150,10,0.1)', ['--reveal-delay' as any]: '950ms' }}
+          style={{ zIndex: 1, marginTop: '26px', paddingTop: '18px', borderTop: '1px solid rgba(232,150,10,0.1)', ['--reveal-delay' as any]: '950ms' }}
         >
           {[
             { title: 'Confidentialité', desc: 'Un espace sûr pour te confier.' },
