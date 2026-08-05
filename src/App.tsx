@@ -104,7 +104,7 @@ export default function App() {
       </header>
 
       {/* ── 2. HERO ─────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden" style={{ paddingTop: '64px', paddingBottom: '60px' }}>
+      <section className="relative min-h-screen overflow-hidden" style={{ paddingTop: '64px', paddingBottom: '60px' }}>
 
         {/* Giant "JOSEPH" background text */}
         <div
@@ -127,136 +127,141 @@ export default function App() {
           </span>
         </div>
 
-        {/* Chess knight — top right decorative */}
+        {/* Photo — true background layer, 90% of the Hero's height, natural (unstretched) width */}
         <div
-          className="absolute top-16 -right-6 pointer-events-none select-none"
-          style={{ opacity: 0.035, zIndex: 0 }}
+          className="absolute pointer-events-none"
+          data-reveal="scale"
+          style={{ top: 0, right: 0, height: '90vh', zIndex: 1, ['--reveal-delay' as any]: '150ms' }}
+        >
+          <img
+            src={josephPhotoNew}
+            alt="Joseph Gbenolo, coach de vie certifié à Cotonou"
+            style={{ height: '100%', width: 'auto', display: 'block', objectFit: 'contain' }}
+          />
+        </div>
+
+        {/* Legibility overlay — dark wash + stronger gradient behind the text zone */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: 2,
+            background: 'linear-gradient(115deg, #0C0C0C 0%, rgba(12,12,12,0.86) 30%, rgba(12,12,12,0.35) 55%, rgba(12,12,12,0.15) 75%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ zIndex: 2, background: 'linear-gradient(to bottom, rgba(12,12,12,0.15) 0%, transparent 30%, rgba(12,12,12,0.55) 78%, #0C0C0C 100%)' }}
+        />
+
+        {/* Decorative golden ring — floats over the photo, upper right */}
+        <svg
+          className="absolute pointer-events-none"
+          data-draw
+          style={{ top: '90px', right: '24px', zIndex: 3, ['--draw-delay' as any]: '650ms' }}
+          width="180" height="180" viewBox="0 0 180 180"
           aria-hidden="true"
         >
-          <ChessKnight className="w-56 h-56 text-[#E8960A]" />
-        </div>
+          <circle cx="90" cy="90" r="89" fill="none" stroke="rgba(232,150,10,0.28)" strokeWidth="1.5" />
+        </svg>
 
-        {/* Headline — full width, big, first */}
-        <div className="relative px-5 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 2, ['--reveal-delay' as any]: '120ms' }}>
-          <h1
-            style={{
-              fontFamily: "'Anton', sans-serif",
-              fontSize: 'clamp(46px, 15vw, 66px)',
-              lineHeight: 0.94,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            <span style={{ display: 'block', color: '#F0E8D8' }}>REPRENDS</span>
-            <span style={{ display: 'block', color: '#E8960A' }}>LE CONTRÔLE</span>
-            <span style={{ display: 'block', color: '#F0E8D8' }}>DE TA VIE.</span>
-          </h1>
-        </div>
+        {/* Content — layered above the photo, pushed down for volume and breathing room */}
+        <div className="relative" style={{ zIndex: 4, paddingTop: '96px' }}>
 
-        {/* Portrait — sits cleanly below the headline, bleeding right, taller crop to show full torso */}
-        <div className="relative w-full" style={{ zIndex: 1, marginTop: '18px' }}>
-          <div className="relative ml-auto" data-reveal="scale" style={{ width: '68%', ['--reveal-delay' as any]: '260ms' }}>
-
-            {/* Decorative golden ring behind portrait */}
-            <svg
-              className="absolute pointer-events-none"
-              data-draw
-              style={{ top: '-30px', right: '-40px', zIndex: 0, ['--draw-delay' as any]: '650ms' }}
-              width="230" height="230" viewBox="0 0 230 230"
-              aria-hidden="true"
-            >
-              <circle cx="115" cy="115" r="114" fill="none" stroke="rgba(232,150,10,0.18)" strokeWidth="1.5" />
-            </svg>
-
-            <div className="relative" style={{ zIndex: 1, height: '460px' }}>
-              <img
-                src={josephPhotoNew}
-                alt="Joseph Gbenolo, coach de vie certifié à Cotonou"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
-              />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to right, #0C0C0C 0%, transparent 30%)' }} />
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to bottom, transparent 68%, #0C0C0C 97%)' }} />
-            </div>
-          </div>
-        </div>
-
-        {/* Subtitle */}
-        <div className="relative px-5 mt-4 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '480ms' }}>
-          <p style={{ color: 'rgba(240,232,216,0.65)', fontSize: '14px', lineHeight: 1.55, maxWidth: '260px' }}>
-            Un accompagnement humain et structuré pour t'aider à clarifier, décider et avancer avec{' '}
-            <strong style={{ color: '#F0E8D8', fontWeight: 600 }}>confiance</strong>.
-          </p>
-        </div>
-
-        {/* Info card */}
-        <div className="relative px-5 mt-4 max-w-md mx-auto w-full" data-pop style={{ zIndex: 1, ['--pop-delay' as any]: '600ms' }}>
-          <div
-            className="flex items-start gap-3"
-            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(232,150,10,0.12)', borderRadius: '14px', padding: '16px' }}
-          >
-            <div
-              className="flex items-center justify-center flex-shrink-0"
-              style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(232,150,10,0.12)' }}
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8960A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </div>
-            <div>
-              <div style={{ fontSize: '13px', fontWeight: 800, color: '#F0E8D8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
-                À ton rythme.
-              </div>
-              <div style={{ fontSize: '11.5px', color: 'rgba(240,232,216,0.5)', lineHeight: 1.5 }}>
-                Des séances personnalisées adaptées à ton parcours et à tes objectifs.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Hand-drawn arrow pointing toward the primary CTA — drawn last, right before CTA */}
-        <div className="relative px-5 max-w-md mx-auto w-full" style={{ zIndex: 1 }}>
-          <svg
-            className="pointer-events-none"
-            data-draw
-            style={{ marginLeft: '4px', marginTop: '6px', ['--draw-delay' as any]: '780ms' }}
-            width="52" height="34" viewBox="0 0 52 34" fill="none" aria-hidden="true"
-          >
-            <path d="M 6 2 C 10 12, 22 24, 40 28" stroke="#E8960A" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5" />
-            <path d="M 33 26 L 41 29 L 38 21" stroke="#E8960A" strokeWidth="1.5" opacity="0.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </div>
-
-        {/* CTA */}
-        <div className="relative px-5 mt-2 max-w-md mx-auto w-full" data-reveal style={{ zIndex: 1, ['--reveal-delay' as any]: '860ms' }}>
-          <span className="pulse-cta inline-block rounded-full">
-            <WaBtn large>Échanger avec Joseph</WaBtn>
-          </span>
-        </div>
-
-        {/* Bottom stats row */}
-        <div
-          className="relative flex justify-between max-w-md mx-auto w-full px-5"
-          data-reveal
-          style={{ zIndex: 1, marginTop: '26px', paddingTop: '18px', borderTop: '1px solid rgba(232,150,10,0.1)', ['--reveal-delay' as any]: '950ms' }}
-        >
-          {[
-            { title: 'Confidentialité', desc: 'Un espace sûr pour te confier.' },
-            { title: 'Clarté', desc: 'Des prises de conscience qui changent tout.' },
-            { title: 'Résultats', desc: 'Des actions concrètes, des changements réels.' },
-          ].map((item, i, arr) => (
-            <div
-              key={item.title}
+          {/* Headline */}
+          <div className="px-5 max-w-md mx-auto w-full" data-reveal style={{ ['--reveal-delay' as any]: '120ms' }}>
+            <h1
               style={{
-                flex: '1 1 0',
-                paddingRight: i < arr.length - 1 ? '14px' : 0,
-                marginRight: i < arr.length - 1 ? '14px' : 0,
-                borderRight: i < arr.length - 1 ? '1px solid rgba(232,150,10,0.1)' : 'none',
+                fontFamily: "'Anton', sans-serif",
+                fontSize: 'clamp(48px, 16vw, 70px)',
+                lineHeight: 0.94,
+                letterSpacing: '-0.01em',
               }}
             >
-              <div style={{ fontSize: '11px', fontWeight: 700, color: '#F0E8D8', marginBottom: '5px' }}>{item.title}</div>
-              <div style={{ fontSize: '9.5px', color: 'rgba(240,232,216,0.4)', lineHeight: 1.45 }}>{item.desc}</div>
+              <span style={{ display: 'block', color: '#F0E8D8' }}>REPRENDS</span>
+              <span style={{ display: 'block', color: '#E8960A' }}>LE CONTRÔLE</span>
+              <span style={{ display: 'block', color: '#F0E8D8' }}>DE TA VIE.</span>
+            </h1>
+          </div>
+
+          {/* Subtitle */}
+          <div className="px-5 mt-4 max-w-md mx-auto w-full" data-reveal style={{ ['--reveal-delay' as any]: '480ms' }}>
+            <p style={{ color: 'rgba(240,232,216,0.75)', fontSize: '14px', lineHeight: 1.55, maxWidth: '260px' }}>
+              Un accompagnement humain et structuré pour t'aider à clarifier, décider et avancer avec{' '}
+              <strong style={{ color: '#F0E8D8', fontWeight: 600 }}>confiance</strong>.
+            </p>
+          </div>
+
+          {/* Info card */}
+          <div className="px-5 mt-4 max-w-md mx-auto w-full" data-pop style={{ ['--pop-delay' as any]: '600ms' }}>
+            <div
+              className="flex items-start gap-3"
+              style={{ background: 'rgba(12,12,12,0.55)', backdropFilter: 'blur(6px)', border: '1px solid rgba(232,150,10,0.18)', borderRadius: '14px', padding: '16px' }}
+            >
+              <div
+                className="flex items-center justify-center flex-shrink-0"
+                style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'rgba(232,150,10,0.15)' }}
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8960A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <div style={{ fontSize: '13px', fontWeight: 800, color: '#F0E8D8', textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '4px' }}>
+                  À ton rythme.
+                </div>
+                <div style={{ fontSize: '11.5px', color: 'rgba(240,232,216,0.6)', lineHeight: 1.5 }}>
+                  Des séances personnalisées adaptées à ton parcours et à tes objectifs.
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Hand-drawn arrow pointing toward the primary CTA — drawn last, right before CTA */}
+          <div className="px-5 max-w-md mx-auto w-full">
+            <svg
+              className="pointer-events-none"
+              data-draw
+              style={{ marginLeft: '4px', marginTop: '6px', ['--draw-delay' as any]: '780ms' }}
+              width="52" height="34" viewBox="0 0 52 34" fill="none" aria-hidden="true"
+            >
+              <path d="M 6 2 C 10 12, 22 24, 40 28" stroke="#E8960A" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.5" />
+              <path d="M 33 26 L 41 29 L 38 21" stroke="#E8960A" strokeWidth="1.5" opacity="0.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+
+          {/* CTA */}
+          <div className="px-5 mt-2 max-w-md mx-auto w-full" data-reveal style={{ ['--reveal-delay' as any]: '860ms' }}>
+            <span className="pulse-cta inline-block rounded-full">
+              <WaBtn large>Échanger avec Joseph</WaBtn>
+            </span>
+          </div>
+
+          {/* Bottom stats row */}
+          <div
+            className="flex justify-between max-w-md mx-auto w-full px-5"
+            data-reveal
+            style={{ marginTop: '26px', paddingTop: '18px', borderTop: '1px solid rgba(232,150,10,0.15)', ['--reveal-delay' as any]: '950ms' }}
+          >
+            {[
+              { title: 'Confidentialité', desc: 'Un espace sûr pour te confier.' },
+              { title: 'Clarté', desc: 'Des prises de conscience qui changent tout.' },
+              { title: 'Résultats', desc: 'Des actions concrètes, des changements réels.' },
+            ].map((item, i, arr) => (
+              <div
+                key={item.title}
+                style={{
+                  flex: '1 1 0',
+                  paddingRight: i < arr.length - 1 ? '14px' : 0,
+                  marginRight: i < arr.length - 1 ? '14px' : 0,
+                  borderRight: i < arr.length - 1 ? '1px solid rgba(232,150,10,0.15)' : 'none',
+                }}
+              >
+                <div style={{ fontSize: '11px', fontWeight: 700, color: '#F0E8D8', marginBottom: '5px' }}>{item.title}</div>
+                <div style={{ fontSize: '9.5px', color: 'rgba(240,232,216,0.55)', lineHeight: 1.45 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
